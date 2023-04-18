@@ -34,32 +34,33 @@ include 'connect.php';
 
 <?php
 $sql="SELECT * FROM transport";
-$result=mysqli_query($conn,$sql);
-if($result->num_rows>0){
-    while($row= $result->fetch_assoc()){
-        $id=$row['id'];
-        $busno=$row['busno'];
-        $route=$row['route'];
-        $drivername=$row['drivername'];
-        $phoneno=$row['phoneno'];
-        $fee=$row['fee'];
-        $timetable=$row['timetable'];
-        echo '<tr>
-      <thscope="row">'.$id.'</th>
-      <td>'.$busno.'</td>
-      <td>'.$route.'</td>
-      <td>'.$drivername.'</td>
-      <td>'.$phoneno.'</td>
-      <td>'.$fee.'</td>
-      <td>'.$timetable.'</td>
-
-      <td>
+$result=$conn->query($sql);
+if ($result->num_rows>0) {
+  while ($row=$result->fetch_assoc()) {
+    ?>
+    <tr>
+    <td><?php echo($row['busno']); ?></td>
+    <td><?php echo($row['route']); ?></td>
+    <td><?php echo($row['drivername']); ?></td>
+    <td><?php echo($row['phoneno']); ?></td>
+    <td><?php echo($row['fee']); ?></td>
+    <td><?php echo($row['timetable']); ?></td>
+    <td>
     <button class=" btn btn-primary"><a href="update.php?update='.$id.'" class="text-light"> Update</a></button>
     <button class= "btn btn-danger" ><a href="delete.php? deleteid='.$id.'"  class="text-light">Delete</a></button>
-
-    
     </td>
-    </tr>';
+    </tr>
+    <?php
+    # code...
+  }
+  # code...
+} else {
+  # code...
+}
+
+?>
+    <button class=" btn btn-primary"><a href="update.php?update='.$id.'" class="text-light"> Update</a></button>
+    <button class= "btn btn-danger" ><a href="delete.php? deleteid='.$id.'"  class="text-light">Delete</a></button>
     }
 }
 
