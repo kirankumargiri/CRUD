@@ -35,8 +35,8 @@ include 'connect.php';
 <?php
 $sql="SELECT * FROM transport";
 $result=mysqli_query($conn,$sql);
-if($result){
-    while($row=mysqli_fetch_assoc($result)){
+if($result->num_rows>0){
+    while($row= $result->fetch_assoc()){
         $id=$row['id'];
         $busno=$row['busno'];
         $route=$row['route'];
@@ -56,10 +56,19 @@ if($result){
       <td>
     <button class=" btn btn-primary"><a href="update.php?update='.$id.'" class="text-light"> Update</a></button>
     <button class= "btn btn-danger" ><a href="delete.php? deleteid='.$id.'"  class="text-light">Delete</a></button>
-
-    
     </td>
-    </tr>';
+    </tr>
+    <?php
+    # code...
+  }
+  # code...
+} else {
+  # code...
+}
+
+?>
+    <button class=" btn btn-primary"><a href="update.php?update='.$id.'" class="text-light"> Update</a></button>
+    <button class= "btn btn-danger" ><a href="delete.php? deleteid='.$id.'"  class="text-light">Delete</a></button>
     }
 }
 
