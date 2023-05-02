@@ -35,8 +35,8 @@ include 'connect.php';
 <?php
 $sql="SELECT * FROM transport";
 $result=mysqli_query($conn,$sql);
-if($result->num_rows>0){
-    while($row= $result->fetch_assoc()){
+if($result){
+    while($row=mysqli_fetch_assoc($result)){
         $id=$row['id'];
         $busno=$row['busno'];
         $route=$row['route'];

@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
   VALUES('$var1','$var2','$var3','$var4','$var5','$var6')";
   $result=mysqli_query($conn,$sql);
   if($result){
-    header('location:display.php');
+    // header('location:display.php');
     
   } else{
     die(mysqli_error($conn));
