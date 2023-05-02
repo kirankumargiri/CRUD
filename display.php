@@ -52,8 +52,6 @@ if($result->num_rows>0){
       <td>'.$phoneno.'</td>
       <td>'.$fee.'</td>
       <td>'.$timetable.'</td>
-
-      <td>
     <button class=" btn btn-primary"><a href="update.php?update='.$id.'" class="text-light"> Update</a></button>
     <button class= "btn btn-danger" ><a href="delete.php? deleteid='.$id.'"  class="text-light">Delete</a></button>
     </td>
@@ -72,9 +70,8 @@ if($result->num_rows>0){
     }
 }
 
-?>
-
 </div>
+?>
     
 </body>
 </html>
